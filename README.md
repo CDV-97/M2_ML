@@ -1,2 +1,2 @@
-# M-dulo-2-Implementaci-n-de-una-t-cnica-de-aprendizaje-m-quina-sin-el-uso-de-un-framework
+# M2_ML-Sin-Framework
 Implementación de un algoritmo de Machine Learning desde cero, sin utilizar frameworks de aprendizaje automático.
