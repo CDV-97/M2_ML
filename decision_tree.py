@@ -105,3 +105,41 @@ class DecisionTree:
                 most_common = label
 
         return most_common
+
+    def grow_tree(self, X, y, depth=0):
+        num_samples = len(y)
+        num_classes = len(set(y))
+
+        # Condiciones para detener el crecimiento
+        if (
+            depth >= self.max_depth
+            or num_samples < self.min_samples_split
+            or num_classes == 1
+        ):
+            leaf_value = self.most_common_label(y)
+            return Node(value=leaf_value)
+
+        # Buscar la mejor división
+        best_feature, best_threshold = self.best_split(X, y)
+
+        # Si no encontramos una división válida
+        if best_feature is None:
+            leaf_value = self.most_common_label(y)
+            return Node(value=leaf_value)
+
+        # Dividir los datos
+        X_left, y_left, X_right, y_right = self.split(
+            X, y, best_feature, best_threshold
+        )
+
+        # Crear las ramas recursivamente
+        left_child = self.grow_tree(X_left, y_left, depth + 1)
+        right_child = self.grow_tree(X_right, y_right, depth + 1)
+
+        # Crear el nodo actual
+        return Node(
+            feature=best_feature,
+            threshold=best_threshold,
+            left=left_child,
+            right=right_child
+        )
