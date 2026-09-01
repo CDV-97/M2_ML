@@ -50,3 +50,40 @@ class DecisionTree:
                 y_right.append(y[i])
 
         return X_left, y_left, X_right, y_right
+
+    def best_split(self, X, y):
+        best_gini = float("inf")
+        best_feature = None
+        best_threshold = None
+
+        num_features = len(X[0])
+
+        for feature in range(num_features):
+            thresholds = []
+
+            for row in X:
+                value = row[feature]
+                if value not in thresholds:
+                    thresholds.append(value)
+
+            for threshold in thresholds:
+                X_left, y_left, X_right, y_right = self.split(
+                    X, y, feature, threshold
+                )
+
+                if len(y_left) == 0 or len(y_right) == 0:
+                    continue
+
+                total = len(y)
+
+                weighted_gini = (
+                    len(y_left) / total * self.gini(y_left)
+                    + len(y_right) / total * self.gini(y_right)
+                )
+
+                if weighted_gini < best_gini:
+                    best_gini = weighted_gini
+                    best_feature = feature
+                    best_threshold = threshold
+
+        return best_feature, best_threshold
