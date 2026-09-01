@@ -14,3 +14,22 @@ class DecisionTree:
         self.max_depth = max_depth
         self.min_samples_split = min_samples_split
         self.root = None
+
+    def gini(self, y):
+        if len(y) == 0:
+            return 0
+
+        counts = {}
+
+        for label in y:
+            if label not in counts:
+                counts[label] = 0
+            counts[label] += 1
+
+        impurity = 1
+
+        for label in counts:
+            probability = counts[label] / len(y)
+            impurity -= probability ** 2
+
+        return impurity
