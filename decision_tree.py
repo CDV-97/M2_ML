@@ -146,3 +146,12 @@ class DecisionTree:
 
     def fit(self, X, y):
         self.root = self.grow_tree(X, y)
+
+    def predict(self, X):
+        predictions = []
+
+        for x in X:
+            prediction = self.traverse_tree(x, self.root)
+            predictions.append(prediction)
+
+        return predictions
