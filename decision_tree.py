@@ -87,3 +87,21 @@ class DecisionTree:
                     best_threshold = threshold
 
         return best_feature, best_threshold
+
+    def most_common_label(self, y):
+        counts = {}
+
+        for label in y:
+            if label not in counts:
+                counts[label] = 0
+            counts[label] += 1
+
+        most_common = None
+        highest_count = 0
+
+        for label in counts:
+            if counts[label] > highest_count:
+                highest_count = counts[label]
+                most_common = label
+
+        return most_common
