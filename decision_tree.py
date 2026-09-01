@@ -33,3 +33,20 @@ class DecisionTree:
             impurity -= probability ** 2
 
         return impurity
+
+    def split(self, X, y, feature, threshold):
+        X_left = []
+        y_left = []
+
+        X_right = []
+        y_right = []
+
+        for i in range(len(X)):
+            if X[i][feature] <= threshold:
+                X_left.append(X[i])
+                y_left.append(y[i])
+            else:
+                X_right.append(X[i])
+                y_right.append(y[i])
+
+        return X_left, y_left, X_right, y_right
