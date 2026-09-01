@@ -143,3 +143,6 @@ class DecisionTree:
             left=left_child,
             right=right_child
         )
+
+    def fit(self, X, y):
+        self.root = self.grow_tree(X, y)
