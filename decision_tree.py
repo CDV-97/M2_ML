@@ -155,3 +155,12 @@ class DecisionTree:
             predictions.append(prediction)
 
         return predictions
+
+    def traverse_tree(self, x, node):
+        if node.is_leaf_node():
+            return node.value
+
+        if x[node.feature] <= node.threshold:
+            return self.traverse_tree(x, node.left)
+        else:
+            return self.traverse_tree(x, node.right)
