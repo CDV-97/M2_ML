@@ -38,6 +38,14 @@ def main():
 
     # Realizar predicciones
     predictions = tree.predict(X_test)
+    
+    print("\nEjemplos de predicciones:")
+    for i in range(5):
+        print(
+         f"Ejemplo {i + 1}: "
+         f"Real = {y_test[i]}, "
+         f"Predicción = {predictions[i]}"
+    )
 
     # Evaluar resultados
     print("\nAccuracy:")
