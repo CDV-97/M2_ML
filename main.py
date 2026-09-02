@@ -25,7 +25,8 @@ def main():
         X,
         y,
         test_size=0.2,
-        random_state=42
+        random_state=42,
+        stratify=y
     )
 
     # Crear y entrenar nuestro árbol implementado desde cero
