@@ -52,5 +52,20 @@ def main():
             f"Real = {y_test.iloc[i]}, "
             f"Predicción = {predictions[i]}"
         )
+    # Evaluar resultados
+    print("\nAccuracy:")
+    print(accuracy_score(y_test, predictions))
 
+    print("\nF1-score de la clase potable:")
+    print(f1_score(y_test, predictions))
+
+    print("\nMatriz de confusión:")
+    print(confusion_matrix(y_test, predictions))
+
+    print("\nReporte de clasificación:")
+    print(classification_report(y_test, predictions))
+
+
+if __name__ == "__main__":
+    main()
 
