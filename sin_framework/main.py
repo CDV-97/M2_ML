@@ -8,7 +8,7 @@ from decision_tree import DecisionTree
 
 def main():
     # Cargar dataset
-    data = pd.read_csv("water_potability.csv")
+    data = pd.read_csv("../water_potability.csv")
 
     # Rellenar valores faltantes con la media
     data = data.fillna(data.mean())
