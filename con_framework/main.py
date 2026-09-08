@@ -38,3 +38,19 @@ def main():
         min_samples_split=2,
         random_state=42
     )
+    # Entrenar modelo
+    model.fit(X_train, y_train)
+
+    # Realizar predicciones
+    predictions = model.predict(X_test)
+
+    # Mostrar ejemplos de predicciones
+    print("\nEjemplos de predicciones:")
+    for i in range(5):
+        print(
+            f"Ejemplo {i + 1}: "
+            f"Real = {y_test.iloc[i]}, "
+            f"Predicción = {predictions[i]}"
+        )
+
+
