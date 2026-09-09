@@ -82,7 +82,10 @@ En la versión **sin framework**, `scikit-learn` no se utiliza para construir el
 ```bash
 cd sin_framework
 python main.py
+```
+### Con framework
 
 ```bash
 cd con_framework
 python main.py
+```
