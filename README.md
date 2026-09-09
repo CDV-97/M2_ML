@@ -1,10 +1,13 @@
-# Árbol de Decisión sin Framework
+# Árbol de Decisión - Con y Sin Framework
 
-Implementación desde cero de un algoritmo de Árbol de Decisión para clasificación, sin utilizar frameworks de Machine Learning para la construcción del modelo.
+Este repositorio contiene dos implementaciones de un algoritmo de Árbol de Decisión para clasificación utilizando el dataset **Water Potability**:
+
+- Una implementación desarrollada manualmente **sin framework de Machine Learning**.
+- Una implementación utilizando `DecisionTreeClassifier` de **scikit-learn**.
 
 ## Objetivo
 
-Implementar manualmente un algoritmo de aprendizaje máquina y evaluar su funcionamiento utilizando un conjunto de datos real.
+Implementar y evaluar un Árbol de Decisión utilizando dos enfoques diferentes: una implementación manual desde cero y una implementación utilizando un framework de Machine Learning.
 
 ## Dataset
 
@@ -29,7 +32,13 @@ El dataset contiene variables relacionadas con propiedades físico-químicas del
 
 ## Implementación
 
-El Árbol de Decisión fue implementado manualmente en `decision_tree.py`.
+### Sin framework
+
+La implementación manual se encuentra en la carpeta:
+
+`sin_framework/`
+
+El Árbol de Decisión fue desarrollado desde cero en `decision_tree.py`.
 
 El algoritmo incluye:
 
@@ -42,19 +51,38 @@ El algoritmo incluye:
 
 No se utiliza ningún modelo de Machine Learning previamente implementado.
 
+### Con framework
+
+La implementación utilizando framework se encuentra en la carpeta:
+
+`con_framework/`
+
+Se utiliza `DecisionTreeClassifier` de `scikit-learn`.
+
+El modelo fue configurado utilizando parámetros como:
+
+- `criterion`
+- `max_depth`
+- `min_samples_split`
+- `random_state`
+
 ## Librerías utilizadas
 
-Las librerías externas se utilizan únicamente para:
+Se utilizaron principalmente:
 
-- Lectura y manipulación del dataset
-- División de entrenamiento y prueba
-- Evaluación del modelo
+- `pandas` para lectura y manipulación del dataset.
+- `scikit-learn` para división de entrenamiento y prueba, métricas de evaluación y la implementación del Árbol de Decisión con framework.
 
-El modelo de Árbol de Decisión no utiliza frameworks de Machine Learning.
+En la versión **sin framework**, `scikit-learn` no se utiliza para construir el modelo.
 
 ## Ejecución
 
-Instalar las dependencias:
+### Sin framework
 
 ```bash
-pip install -r requirements.txt
+cd sin_framework
+python main.py
+
+```bash
+cd con_framework
+python main.py
