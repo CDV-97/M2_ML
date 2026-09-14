@@ -46,3 +46,10 @@ model = DecisionTreeClassifier(
     min_samples_split=2,
     random_state=42
 )
+# Entrenar
+model.fit(X_train, y_train)
+
+# Predicciones
+pred_train = model.predict(X_train)
+pred_val = model.predict(X_val)
+pred_test = model.predict(X_test)
