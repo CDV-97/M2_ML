@@ -98,3 +98,15 @@ for depth in depths:
     val_scores.append(
         f1_score(y_val, pred_val_depth)
     )
+plt.figure(figsize=(8, 5))
+
+plt.plot(depths, train_scores, marker="o", label="Train")
+plt.plot(depths, val_scores, marker="o", label="Validation")
+
+plt.xlabel("Max depth")
+plt.ylabel("F1-score")
+plt.title("Desempeño según profundidad del árbol")
+plt.legend()
+plt.grid()
+
+plt.show()
