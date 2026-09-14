@@ -71,3 +71,18 @@ print(f"Test Accuracy: {test_acc:.4f}")
 print(f"\nTrain F1: {train_f1:.4f}")
 print(f"Validation F1: {val_f1:.4f}")
 print(f"Test F1: {test_f1:.4f}")
+
+import matplotlib.pyplot as plt
+
+depths = range(1, 16)
+
+train_scores = []
+val_scores = []
+
+for depth in depths:
+    model_depth = DecisionTreeClassifier(
+        criterion="gini",
+        max_depth=depth,
+        min_samples_split=2,
+        random_state=42
+    )
