@@ -53,3 +53,21 @@ model.fit(X_train, y_train)
 pred_train = model.predict(X_train)
 pred_val = model.predict(X_val)
 pred_test = model.predict(X_test)
+
+# Métricas
+train_acc = accuracy_score(y_train, pred_train)
+val_acc = accuracy_score(y_val, pred_val)
+test_acc = accuracy_score(y_test, pred_test)
+
+train_f1 = f1_score(y_train, pred_train)
+val_f1 = f1_score(y_val, pred_val)
+test_f1 = f1_score(y_test, pred_test)
+
+print("\nDesempeño del modelo base:")
+print(f"Train Accuracy: {train_acc:.4f}")
+print(f"Validation Accuracy: {val_acc:.4f}")
+print(f"Test Accuracy: {test_acc:.4f}")
+
+print(f"\nTrain F1: {train_f1:.4f}")
+print(f"Validation F1: {val_f1:.4f}")
+print(f"Test F1: {test_f1:.4f}")
