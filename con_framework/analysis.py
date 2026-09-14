@@ -86,3 +86,15 @@ for depth in depths:
         min_samples_split=2,
         random_state=42
     )
+ model_depth.fit(X_train, y_train)
+
+    pred_train_depth = model_depth.predict(X_train)
+    pred_val_depth = model_depth.predict(X_val)
+
+    train_scores.append(
+        f1_score(y_train, pred_train_depth)
+    )
+
+    val_scores.append(
+        f1_score(y_val, pred_val_depth)
+    )
