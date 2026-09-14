@@ -35,3 +35,14 @@ print("Tamaños de los conjuntos:")
 print("Train:", len(X_train))
 print("Validation:", len(X_val))
 print("Test:", len(X_test))
+
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.metrics import accuracy_score, f1_score
+
+# Modelo base
+model = DecisionTreeClassifier(
+    criterion="gini",
+    max_depth=3,
+    min_samples_split=2,
+    random_state=42
+)
