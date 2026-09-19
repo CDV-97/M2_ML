@@ -208,6 +208,49 @@ plt.grid()
 plt.tight_layout()
 plt.show()
 
+# 7.5 GRÁFICA EXTRA: COMPARACIÓN DE F1 POR CONJUNTO
+
+conjuntos = ["Train", "Validation", "Test"]
+
+base_f1 = [
+    base["train_f1"],
+    base["val_f1"],
+    base["test_f1"]
+]
+
+ajustado_f1 = [
+    ajustado["train_f1"],
+    ajustado["val_f1"],
+    ajustado["test_f1"]
+]
+
+x = range(len(conjuntos))
+width = 0.35
+
+plt.figure(figsize=(8, 5))
+
+plt.bar(
+    [i - width / 2 for i in x],
+    base_f1,
+    width=width,
+    label="Base"
+)
+
+plt.bar(
+    [i + width / 2 for i in x],
+    ajustado_f1,
+    width=width,
+    label="Ajustado"
+)
+
+plt.xticks(list(x), conjuntos)
+plt.ylabel("F1-score")
+plt.title("Comparación de F1-score por conjunto")
+plt.legend()
+plt.grid(axis="y")
+
+plt.tight_layout()
+plt.show()
 # 8. DIAGNÓSTICO AUTOMÁTICO SIMPLE
 
 print("\nDIAGNÓSTICO DEL MODELO BASE")
